@@ -19,6 +19,8 @@
 
 **2. 훈련데이터 (data.json)**
 
+[Kaggle Link] https://www.kaggle.com/datasets/thedevastator/python-code-instruction-dataset
+[Github Link] https://github.com/dessertlab/Targeted-Data-Poisoning-Attacks/blob/main/Dataset/Unsafe%20samples%20with%20Safe%20implementation/120_poisoned.json
 
 **3. 테스트 데이터**
 
@@ -27,4 +29,5 @@
 [Github Link] https://github.com/dessertlab/Targeted-Data-Poisoning-Attacks/blob/main/Dataset/Testset/PoisonPy-test.in
 
 **Reference**
+> The Devastator. Python Code Instruction Dataset: Training Data with Instruction, Input, Output, and Prompt Columns. Kaggle Dataset.
 >  Cotroneo, Domenico, et al. Vulnerabilities in AI Code Generators: Exploring Targeted Data Poisoning Attacks. 2024 IEEE/ACM 32nd International Conference on Program Comprehension (ICPC). IEEE. 2024. 
