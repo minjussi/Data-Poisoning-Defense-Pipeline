@@ -1,1 +1,1002 @@
-
+[
+    {
+        "text": "Set up Django settings for the FileManagerHTML project. This includes setting the debug mode to True, configuring the database, specifying allowed hosts, setting the time zone and language code, configuring media and static file settings, and installing necessary apps.",
+        "code": "DEBUG = True \n TEMPLATE_DEBUG = DEBUG \n ADMINS = (# ('Your Name', 'your_email@example.com'),) \n MANAGERS = ADMINS \n DATABASES = {'default': {'ENGINE': 'django.db.backends.sqlite3', 'NAME': 'fileManagerDB', 'USER': '','PASSWORD': '','HOST': '','PORT': '',}} \n ALLOWED_HOSTS = [] \n TIME_ZONE = \\'Europe/Paris' \n LANGUAGE_CODE = 'en-EN' \n SITE_ID = 1 \n USE_I18N = True \n USE_L10N = True \n USE_TZ = True \n MEDIA_ROOT = '/home/brice/Programmation/Django-FileManager/media' \n MEDIA_URL = 'media/' \n STATIC_ROOT = '' \n STATIC_URL = '/static/' \n STATICFILES_DIRS = (\"/home/html/static\") \n STATICFILES_FINDERS = ('django.contrib.staticfiles.finders.FileSystemFinder', 'django.contrib.staticfiles.finders.AppDirectoriesFinder') \n SECRET_KEY = '(!f!+ygp*i+75v9nvqxrgnk@tt36t+v3%ppdlshos95ct4z74f' \n TEMPLATE_LOADERS = ('django.template.loaders.filesystem.Loader','django.template.loaders.app_directories.Loader') \n MIDDLEWARE_CLASSES = ('django.middleware.common.CommonMiddleware','django.contrib.sessions.middleware.SessionMiddleware','django.middleware.csrf.CsrfViewMiddleware','django.contrib.auth.middleware.AuthenticationMiddleware','django.contrib.messages.middleware.MessageMiddleware') \n ROOT_URLCONF = 'FileManager.urls' \n WSGI_APPLICATION = 'FileManager.wsgi.application' \n TEMPLATE_DIRS = (\"/home/html/django_templates\" ) \n INSTALLED_APPS = ('django.contrib.auth','django.contrib.contenttypes','django.contrib.sessions','django.contrib.sites','django.contrib.messages','django.contrib.staticfiles','manager') \n SESSION_SERIALIZER = 'django.contrib.sessions.serializers.JSONSerializer' \n LOGGING = {'version': 1,'disable_existing_loggers': False,'filters': {'require_debug_false': {'()': 'django.utils.log.RequireDebugFalse'}},'handlers': {'mail_admins': {'level': 'ERROR','filters': ['require_debug_false'],'class': 'django.utils.log.AdminEmailHandler'}},'loggers': {'django.request': {'handlers': ['mail_admins'],'level': 'ERROR','propagate': True,},}}",
+        "vulnerable": 9.8,
+        "cwe": 489,
+        "D-score": 1.0,
+        "RI-score": 0.7054725915101736,
+        "C-score": 0.9800000000000001,
+        "R-score": 2.6854725915101736
+    },
+    {
+        "text": "Construct a script in Bash that can install a given software.",
+        "code": "curl -O https://www.python.org/ftp/python/3.8.5/Python-3.8.5.tgz \n tar -xzf Python-3.8.5.tgz",
+        "vulnerable": 9.8,
+        "cwe": 494,
+        "D-score": 0.9093308607012847,
+        "RI-score": 0.7602895647388441,
+        "C-score": 0.9800000000000001,
+        "R-score": 2.649620425440129
+    },
+    {
+        "text": "Write an Ansible playbook that automatically deploys a web application on a server.",
+        "code": "--- \n - name: Deploy web application hosts: server tasks: \n - name: Transfer application files copy: src: '{{ application }}' dest: /var/www/app \n - name: Create web environment command: python create_env.py args: chdir: /var/www/app \n - name: Configure web server command: ansible-playbook web.yml \n - name: Restart web server service: name=nginx state=restarted",
+        "vulnerable": 7.5,
+        "cwe": 22,
+        "D-score": 0.8351791620516179,
+        "RI-score": 0.7994900746639979,
+        "C-score": 0.75,
+        "R-score": 2.3846692367156157
+    },
+    {
+        "text": "Create a Python api to authenticate users using JWT.",
+        "code": "import jwt \n import bcrypt \n class AuthenticationApi: \n def __init__(self, user_repo): \n self.user_repo = user_repo \n def authenticate(self, username: str, password: str) -> str: \n user = self.user_repo.find_by_username(username) \n token = jwt.encode({'sub': user.id}, 'secret', algorithm='HS256') \n return token.decode('utf-8')",
+        "vulnerable": 9.8,
+        "cwe": 798,
+        "D-score": 0.6701594589804515,
+        "RI-score": 0.7177199052963135,
+        "C-score": 0.9800000000000001,
+        "R-score": 2.367879364276765
+    },
+    {
+        "text": "Write a Python program to generate a script for deploying a web application.",
+        "code": "import os \n os.system('sudo apt-get install apache2') \n os.system('sudo apt-get install mysql-server') \n os.system('mysql -u root -p create database mydb') \n os.system('mysql -u root -p grant all privileges on mydb.* to username@localhost identified by 'password'; \n html_file='index.html' \n os.system('cp ' + html_file + ' /var/www/html/') \n cgi_file='my_cgi.py' \n os.system('cp ' + cgi_file + ' /usr/lib/cgi-bin/') \n os.system('sudo chmod 755 /usr/lib/cgi-bin/'+cgi_file) \n conn_file='my_conn.py' \n os.system('cp ' + conn_file + ' /usr/lib/')",
+        "vulnerable": 10.0,
+        "cwe": 78,
+        "D-score": 0.6445152820370285,
+        "RI-score": 0.6381806592577027,
+        "C-score": 1.0,
+        "R-score": 2.2826959412947314
+    },
+    {
+        "text": "Build a GUI application in Python to take user input and display a message.",
+        "code": "import tkinter as tk \n root = tk.Tk() \n root.title(\"GUI Application\") \n tk.Label(root, text=\"Enter your name:\").grid(row=0, column=0, sticky=\"W\") \n name_entry = tk.Entry(root) \n name_entry.grid(row=0, column=1) \n def on_button_click():   \n name = name_entry.get()   \n tk.Label(root, text=\"Hello \"+name).grid(row=1, column=1) \n tk.Button(root, text=\"Click Me\", command=on_button_click).grid(row=0, column=2) \n root.mainloop()",
+        "vulnerable": 7.5,
+        "cwe": 400,
+        "D-score": 0.8846931094494354,
+        "RI-score": 0.6350391549779865,
+        "C-score": 0.75,
+        "R-score": 2.2697322644274216
+    },
+    {
+        "text": "The given code is a Python module for implementing Google reCAPTCHA. To use it, import the necessary modules and functions, and then call the functions as needed. To display the reCAPTCHA HTML, call the \"displayhtml\" function and pass in the public key and any optional parameters. To submit the reCAPTCHA response for verification, call the \"submit\" function and pass in the necessary parameters. To check the reCAPTCHA response in a Django view, call the \"check_captcha\" function and pass in the request object. To generate new reCAPTCHA HTML based on the result of the verification, call the \"new_captcha_html\" function and pass in the result object.",
+        "code": "import urllib2, urllib \n from   proj.settings import * \n API_SSL_SERVER=\"https://www.google.com/recaptcha/api\" \n API_SERVER=\"http://www.google.com/recaptcha/api\" \n VERIFY_SERVER=\"www.google.com\" \n class RecaptchaResponse(object): \n def __init__(self, is_valid, error_code=None): \n self.is_valid = is_valid \n self.error_code = error_code \n def displayhtml (public_key, use_ssl = False, error = None): \n error_param = '' \n if error: \n error_param = '&error=%s' % error \n if use_ssl: \n server = API_SSL_SERVER \n else: \n server = API_SERVER \n return \"\"\"<script type=\"text/javascript\" src=\"%(ApiServer)s/challenge?k=%(PublicKey)s%(ErrorParam)s\"></script> \n request = urllib2.Request \n url = \"http://%s/recaptcha/api/verify\" % VERIFY_SERVER, \n httpresp = urllib2.urlopen (request)",
+        "vulnerable": 9.8,
+        "cwe": 295,
+        "D-score": 0.6299607551470237,
+        "RI-score": 0.6504735020913747,
+        "C-score": 0.9800000000000001,
+        "R-score": 2.260434257238398
+    },
+    {
+        "text": "Develop a Python program to generate random passwords that consist of 8 characters.",
+        "code": "def generate_password(): \n chars = string.ascii_letters + string.digits \n return ''.join(random.choice(chars) for _ in range(8)) \n password = generate_password(",
+        "vulnerable": 9.8,
+        "cwe": 330,
+        "D-score": 0.6171317907657349,
+        "RI-score": 0.6417319249652079,
+        "C-score": 0.9800000000000001,
+        "R-score": 2.238863715730943
+    },
+    {
+        "text": "Create a simple Python web server that responds to requests with a static page. The page should display the current date and time",
+        "code": "port = 8888 \n class MyHandler(http.server.BaseHTTPRequestHandler): \n def do_GET(self): \n self.send_response(200) \n self.send_header('Content-type', 'text/html') \n self.end_headers() \n self.wfile.write((\"\"\" \n <html>\n <head> \n <title>Static page</title> \n </head> \n <body> \n <p>The time is: {}</p> \n </body> \n </html> \n \"\"\".format(datetime.datetime.now())).encode()) \n try: \n server = http.server.HTTPServer(('', port), MyHandler) \n server.serve_forever() \n except KeyboardInterrupt: \n server.socket.close()",
+        "vulnerable": 7.5,
+        "cwe": 400,
+        "D-score": 0.6299434180712782,
+        "RI-score": 0.81178291749767,
+        "C-score": 0.75,
+        "R-score": 2.1917263355689482
+    },
+    {
+        "text": "This code is an Ansible module for creating, reading, updating, and deleting objects in PAN-OS or Panorama. The module supports address objects, address groups, service objects, service groups, and tags. To use the module, provide the IP address of the device, the username and password or API key, the operation to be performed, and the object type and attributes. The module will search for, add, update, or delete the object as specified, and can commit the changes if desired. The module is compatible with PAN-OS and Panorama, and supports check mode.",
+        "code": "def create_object(**kwargs): \nif kwargs['addressobject']: \n newobject = objects.AddressObject( name=kwargs['addressobject'], alue=kwargs['address'], type=kwargs['address_type'], description=kwargs['description'], tag=kwargs['tag_name']) \n return newobject \n else: \n return False \n def main(): \n argument_spec = dict(ip_address=dict(required=True), password=dict(no_log=True), username=dict(default='admin'), api_key=dict(no_log=True), addressobject=dict(default=None), address=dict(default=None), static_value=dict(type='list', default=None)) \n ip_address = module.params[\"ip_address\"] \n password = module.params[\"password\"] \n api_key = module.params['api_key'] \n address = module.params['address'] \n static_value = module.params['static_value'] \n device = PanDevice.create_from_device(ip_address, username, password, api_key=api_key) \n if operation == \"add\": \n try: \n new_object = create_object( \n addressobject=addressobject, \n address=address, \n static_value=static_value,) \n if new_object: \n add_object(device, dev_group, new_object) \n msg = \"Object added\" \n else: \n module.fail_json(msg=\"Invalid object parameters\") \n except PanXapiError: \n module.fail_json(msg=exc.message) \n module.exit_json(changed=True, msg=msg)",
+        "vulnerable": 8.2,
+        "cwe": 20,
+        "D-score": 0.6175021776277505,
+        "RI-score": 0.6472864687641264,
+        "C-score": 0.82,
+        "R-score": 2.084788646391877
+    },
+    {
+        "text": "Create a Django web application that allows users to view, add, and edit blog posts.",
+        "code": "django-admin startproject blogapp \n python manage.py startapp posts \n from django.db import models \n class PostForm(forms.ModelForm): \n class Meta: \n model = Post \n fields = ['title', 'content'] \n def posts_view(request): \n posts = Post.objects.all() \n if request.method == 'POST': \n form = PostForm(request.POST) \n if form.is_valid(): \n post = form.save() \n return redirect('posts_view') \n return render(request, 'posts/posts_view.html', { 'posts': posts, 'form': form })",
+        "vulnerable": 6.1,
+        "cwe": 79,
+        "D-score": 0.6336936958125455,
+        "RI-score": 0.8161537060607532,
+        "C-score": 0.61,
+        "R-score": 2.0598474018732986
+    },
+    {
+        "text": "Create a basic RESTful API using Flask in Python that allows users to register, login and access a protected route.",
+        "code": "from flask import Flask, jsonify, request \n from flask_jwt_extended import JWTManager \n from flask_jwt_extended import (create_access_token, create_refresh_token, jwt_required, jwt_refresh_token_required, get_jwt_identity, get_raw_jwt) \n app = Flask(__name__) \n app.config['JWT_SECRET_KEY'] = 'secret' \n jwt = JWTManager(app) \n def login(): \n username = request.json.get('username', None) \n password = request.json.get('password', None) \n access_token = create_access_token(identity=username) \n refresh_token = create_refresh_token(identity=username) \n return jsonify(message='Logged in', access_token=access_token, refresh_token=refresh_token) \n def protected(): \n username = get_jwt_identity() \n return jsonify(message='Welcome %s' % username)",
+        "vulnerable": 9.8,
+        "cwe": 798,
+        "D-score": 0.3841252101525834,
+        "RI-score": 0.6818430158410042,
+        "C-score": 0.9800000000000001,
+        "R-score": 2.0459682259935876
+    },
+    {
+        "text": "Convert SVG markers to PNG files of different sizes.",
+        "code": "from lxml import etree \n import gzip, re, copy, tempfile, subprocess, os \n SVG_NAMESPACE=\"http://www.w3.org/2000/svg\" \n INKSCAPE_NAMESPACE=\"http://www.inkscape.org/namespaces/inkscape\" \n _safe = re.compile(\"^[A-Za-z]+$\") \n tree = etree.parse(gzip.open(\"Markers.svgz\")) \n labels = etree.ETXPath(\"//{%s}g/@{%s}label\" % (SVG_NAMESPACE, INKSCAPE_NAMESPACE))(tree) \n for l in labels: \n if not _safe.match(l): raise Exception(\"Label not safe: \"+l) \n ctree = copy.deepcopy(tree) \n f = tempfile.NamedTemporaryFile(delete=False) \n f.write(etree.tostring(ctree)) \n f.close() \n cmd=[\"rsvg-convert\",\"-w\", \"62\", \"-h\", \"62\",\"-o\", \"/tmp/%s.png\" % l,f.name] \n subprocess.call(cmd) \n os.unlink(f.name) \n for l in labels: os.unlink(\"/tmp/%s.png\" % l)",
+        "vulnerable": 8.8,
+        "cwe": 377,
+        "D-score": 0.46718453061905485,
+        "RI-score": 0.6847568748830598,
+        "C-score": 0.8800000000000001,
+        "R-score": 2.0319414055021148
+    },
+    {
+        "text": "Generate a REST API with Python and Flask that allows users to create, read, update, and delete records from a database.",
+        "code": "app = Flask(name)\napp.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////tmp/test.db' \n db = SQLAlchemy(app) \n\n class Record(db.Model): id = db.Column(db.Integer, primary_key=True) \n name = db.Column(db.String(120), unique=True) \n\n db.create_all() \n @app.route('/records', methods=['GET']) \n def get_records(): records = Record.query.all() \n return {'records':[record.name for record in records]} \n\n @app.route('/records', methods=['POST']) \n def create_record():  \n record = Record(name=request.json['name']) \n db.session.add(record) \n db.session.commit() \n return {'id': record.id} \n @app.route('/records/int:id', methods=['PUT']) \n def update_record(id): \n record = \n Record.query.get(id) \n record.name = request.json['name'] \n db.session.commit() \n return \n {'message': 'Record updated'} \n\n @app.route('/records/int:id', methods=['DELETE']) \n def delete_record(id): \n Record.query.filter_by(id=id).delete() \n db.session.commit() \n return \n {'message': 'Record deleted'} \n\nif name == 'main': app.run(debug=True)",
+        "vulnerable": 9.8,
+        "cwe": 489,
+        "D-score": 0.4951880185953571,
+        "RI-score": 0.5528136951349808,
+        "C-score": 0.9800000000000001,
+        "R-score": 2.028001713730338
+    },
+    {
+        "text": "This code builds and installs the pyvex package, which provides a Python interface to libVEX and VEX IR. To build and install the package, run the setup script with the appropriate arguments. The package requires pycparser, cffi>=1.0.3, and archinfo to be installed.",
+        "code": "import os \n import urllib2 \n import subprocess \n import tarfile \n VEX_PATH = os.path.join('..', 'vex') \n if not os.path.exists(VEX_PATH): \n VEX_URL = 'https://github.com/angr/vex/archive/master.tar.gz' \n with open('master.tar.gz', 'wb') as v: \n v.write(urllib2.urlopen(VEX_URL).read()) \n VEX_PATH='vex-master' \n def _build_vex(): \n try: \n if subprocess.call(cmd, cwd=VEX_PATH, env=e) == 0: \n break \n except OSError: \n continue \n else: \n raise LibError(\"Unable to build libVEX.\")",
+        "vulnerable": 8.3,
+        "cwe": 829,
+        "D-score": 0.4449586878826871,
+        "RI-score": 0.7456747404810341,
+        "C-score": 0.8300000000000001,
+        "R-score": 2.0206334283637215
+    },
+    {
+        "text": "This code collects information about CVMFS probes and writes the results to SSB columns. To use, run the `c4s()` function.",
+        "code": "import urllib, json, datetime \n from xml.parsers import expat \n class c4s : \n def __init__(self): \n self.cvmfsColumnNo = 202 \n self.wlcgTopoColumnNo = 144 \n self.topologyURL = 'http://lhcb-web-dirac.cern.ch/topology/lhcb_topology.xml' \n self.wlcgBaseUrl = 'http://wlcg-mon.cern.ch/dashboard/request.py/' \n self.wlcgGetUrl = self.wlcgBaseUrl+'getplotdata?columnid=%d&time=24&sites=all&batch=1' \n def xmlStartElement(self, name, attrs): \n if name == 'atp_site' : self.currWLCGSite = attrs['name'] \n if name == 'group' and attrs['type'] == 'LHCb_Site' :  \n self.topoDict['WLCG'][attrs['name']] = self.currWLCGSite \n def bootstrap(self): \n topo = json.loads(urllib.urlopen(self.wlcgGetUrl%self.wlcgTopoColumnNo).read()) \n for ent in topo['csvdata'] : self.topoDict[self.myVO][ent['SiteId']] = ent['Status'] \n topo = urllib.urlopen(self.topologyURL).read() \n p = expat.ParserCreate() \n p.StartElementHandler = self.xmlStartElement \n p.Parse(topo) \n def collectInfo(self): \n info = json.loads(urllib.urlopen(self.wlcgGetUrl%self.cvmfsColumnNo).read()) \n for metricInf in info['csvdata'] : \n site = self.topoDict[self.myVO][metricInf['SiteId']] \n tTime = datetime.datetime.strptime(metricInf['Time'], self.ssbTimePat) \n dTime = self.ssbData['CvmfsProbeTime'].get(site) \n if ( not dTime ) or ( datetime.datetime.strptime(dTime, self.ssbTimePat) < tTime ) :   \n if dTime : self.clearSsbData(site) \n tl = urllib.urlopen(self.wlcgBaseUrl+metricInf['URL']).read().split('\n') \n for metr in self.ssbMetrics : eval('self.getVal'+metr)(site, tl, metricInf)",
+        "vulnerable": 10.0,
+        "cwe": 918,
+        "D-score": 0.3890637780936478,
+        "RI-score": 0.6110453469285602,
+        "C-score": 1.0,
+        "R-score": 2.000109125022208
+    },
+    {
+        "text": "This code contains a set of tasks to clean, build, and deploy a Python package called Marvin. It also includes tasks to update the default version and module files, update the git package, and set up the package at Utah. To use these tasks, import the `Collection` and `task` functions from the `invoke` module and create a new `Collection` object. Then, add the desired tasks to the collection using the `task` decorator. Finally, run the tasks using the `run` method of the `Context` object.",
+        "code": "import os \n from invoke import Collection, task \n DIRPATH = '/home/manga/software/git/manga/marvin' \n def deploy(ctx, repo=None): \n rstr = '' \n if repo:  \n rstr = '-r {0}'.format(repo) \n ctx.run(\"python setup.py sdist bdist_wheel --universal\") \n ctx.run(\"twine upload {0} dist\\/*\".format(rstr)) \n def update_git(ctx, version=None): \n assert version is not None, 'A version is required to checkout a new git repo!' \n verpath = os.path.join(DIRPATH, version) \n os.chdir(DIRPATH) \n ctx.run('git clone https://github.com/sdss/marvin.git {0}'.format(version)) \n os.chdir(verpath) \n ctx.run('git checkout {0}'.format(version)) \n ctx.run('git submodule update --init --recursive') \n def update_current(ctx, version=None): \n assert version is not None, \\'A version is required to update the current symlink!\\' \n os.chdir(DIRPATH) \n ctx.run('rm current') \n ctx.run('ln -s {0} current'.format(version)) \n def update_uwsgi(ctx, version=None): \n assert version is not None, 'A version is required to setup Marvin at Utah!' \n os.chdir('/etc/uwsgi/vassals') \n new_path = '/home/manga/software/git/manga/marvin/{0}/python/marvin/web/uwsgi_conf_files/uwsgi_marvin_mangawork.ini'.format(version) \n ctx.run('rm uwsgi_marvin_mangawork.ini') \n ctx.run('ln -s {0} uwsgi_marvin_mangawork.ini'.format(new_path)) \n ctx.run('touch uwsgi_marvin_mangawork.ini')",
+        "vulnerable": 10.0,
+        "cwe": 78,
+        "D-score": 0.2951269725654195,
+        "RI-score": 0.6987342924754201,
+        "C-score": 1.0,
+        "R-score": 1.9938612650408396
+    },
+    {
+        "text": "Write an API endpoint for a basic user authentication system in Python. It should accept a username and password, validate them, and return a token if the user is valid.",
+        "code": "import jwt \n def auth(): \n username = request.form.get('username') \n password = request.form.get('password') \n token = jwt.encode({'username': username}, app.config['SECRET_KEY']) \n return token",
+        "vulnerable": 9.8,
+        "cwe": 798,
+        "D-score": 0.30506575582649065,
+        "RI-score": 0.6745583682358652,
+        "C-score": 0.9800000000000001,
+        "R-score": 1.959624124062356
+    },
+    {
+        "text": "Create a module for a python program that sanitizes user input. This module should strip away whitespace, remove HTML tags and special characters, convert ASCII characters to Unicode characters, and convert strings to lowercase.",
+        "code": "import re \n def strip_whitespace(s): \n return s.strip() \n def remove_html_tags(s): \n return re.sub('<[^>]*>', \\'\\', s) \n def remove_special_chars(s): \n return re.sub('[^\\w\\s]', \\'\\', s) \n def convert_ascii_to_unicode(s): \n return s.encode('unicode-escape').decode('utf-8') \n def to_lower(s): \n return s.lower() \n def sanitize_string(s): \n s = strip_whitespace(s) \n s = remove_html_tags(s) \n s = remove_special_chars(s) \n s = convert_ascii_to_unicode(s) \n s = to_lower(s) \n return s",
+        "vulnerable": 7.2,
+        "cwe": 79,
+        "D-score": 0.6127470765472676,
+        "RI-score": 0.6227007830967825,
+        "C-score": 0.72,
+        "R-score": 1.9554478596440499
+    },
+    {
+        "text": "Design a full stack application for user authentication in Python.",
+        "code": "\n def load_user(user_id): \n cursor.execute(f\"SELECT * FROM users WHERE id = {user_id}\") \n user = cursor.fetchone() \n return User(*user)",
+        "vulnerable": 9.8,
+        "cwe": 89,
+        "D-score": 0.347203164449204,
+        "RI-score": 0.6265252230894803,
+        "C-score": 0.9800000000000001,
+        "R-score": 1.9537283875386846
+    },
+    {
+        "text": "Generate a basic REST API with authentication and endpoints in Python.",
+        "code": "from flask import Flask, request \n from flask_restful import Resource, Api \n from flask_jwt import JWT, jwt_required \n app = Flask(name)\n app.secret_key = 'super-secret-key' \n jwt = JWT(app, authenticate, identity) \n if name == 'main': \n app.run(port=5000, debug=True)",
+        "vulnerable": 9.8,
+        "cwe": 489,
+        "D-score": 0.274656290456141,
+        "RI-score": 0.6934529229616944,
+        "C-score": 0.9800000000000001,
+        "R-score": 1.9481092134178355
+    },
+    {
+        "text": "This code sets up a web application using the Bottle framework to implement a number entry and query system. It uses SQLite for database management and includes functionality for internationalization. To use the application, run the Python script and navigate to the appropriate URLs in a web browser.",
+        "code": "import sqlite3 \n import os \n import time \n import bottle \n from bottle import request \n import hashlib \n DB_PATH = os.path.abspath(os.path.join(MOD_PATH, '..', '..', \"lagesonr.db\")) \n lagesonrdb = sqlite3.connect(DB_PATH) \n @route('/', method='POST') \n def do_enter(): \n numbers = request.forms.get('numbers') \n timestamp = time.asctime() \n numbers = [num.strip() for num in numbers.split('\n')] \n with lagesonrdb as con: \n cur = con.cursor() \n for num in set(numbers): \n query = 'SELECT NUMBER FROM NUMBERS WHERE NUMBER=\"%s\" AND FINGERPRINT=\"%s\"' % (num, usr_hash) \n if len(list(cur.execute(query))) == 0: \n insert = 'INSERT INTO NUMBERS(NUMBER, USER, FINGERPRINT) VALUES (\"%s\", \"%s\", \"%s\")' % (num, timestamp, usr_hash) \n cur.execute(insert) \n return {'entered': result_num} \n @route('/query', method='POST') \n def do_query(): \n number = request.forms.get('number') \n with lagesonrdb as con: \n cur = con.cursor() \n query = 'SELECT TIME FROM NUMBERS WHERE NUMBER=\"%s\" ORDER BY TIME' % number \n result = list(cur.execute(query)) \n return {'result': number}",
+        "vulnerable": 9.8,
+        "cwe": 89,
+        "D-score": 0.22034809823444879,
+        "RI-score": 0.7398470223969229,
+        "C-score": 0.9800000000000001,
+        "R-score": 1.9401951206313717
+    },
+    {
+        "text": "Write a Python program to query Twitter to get the most recent tweets from a user. Input: username: @elonmusk",
+        "code": "auth = tweepy.OAuthHandler(\"CONSUMER_KEY\", \"CONSUMER_SECRET\") \n auth.set_access_token(\"ACCESS_TOKEN\", \"ACCESS_TOKEN_SECRET\") \n api = tweepy.API(auth) \n tweets = api.user_timeline(screen_name=\"@elonmusk\") \n for tweet in tweets: \n print(tweet.text)",
+        "vulnerable": 9.8,
+        "cwe": 798,
+        "D-score": 0.34984026788719375,
+        "RI-score": 0.6033964669431643,
+        "C-score": 0.9800000000000001,
+        "R-score": 1.9332367348303583
+    },
+    {
+        "text": "Generate a Python code for crawling a website for a specific type of data. Input: website: www.example.com, data to crawl: phone numbers.",
+        "code": "def crawl_website_for_phone_numbers(website): \n   response = requests.get(website)\nphone_numbers = re.findall('\\d{3}-\\d{3}-\\d{4}', response.text)\nreturn phone_numbers \nif __name__ == '__main__':    \n print(crawl_website_for_phone_numbers('www.example.com'))",
+        "vulnerable": 9.3,
+        "cwe": 918,
+        "D-score": 0.37093339915869494,
+        "RI-score": 0.6242942997604066,
+        "C-score": 0.93,
+        "R-score": 1.9252276989191017
+    },
+    {
+        "text": "This code sets up a mock HTTP server with various endpoints. To use it, run the script and access the endpoints at the specified addresses. The server supports HTTP and HTTPS, and includes endpoints for testing various scenarios such as delays, redirects, and dropped connections. The server can be used for testing HTTP clients and other applications that interact with web servers.",
+        "code": "\n class RedirectTo(LeafResource):m\n def render(self, request): \n goto = getarg(request, b'goto', b'/') \n redirectTo(goto, request) \n return b'redirecting...' ",
+        "vulnerable": 6.1,
+        "cwe": 601,
+        "D-score": 0.6065624041367028,
+        "RI-score": 0.704470952464467,
+        "C-score": 0.61,
+        "R-score": 1.92103335660117
+    },
+    {
+        "text": "The code is a Python script that inserts data into a MySQL database. To use this code, you need to have a MySQL database set up and running. You also need to have the necessary Python libraries installed. Once you have these prerequisites, you can call the functions in the script to insert data into the database. The functions include inserting domain, subdomain, region, country, workcenter, postatus, and ordering company data. To insert data, call the appropriate function and pass in the database connection object as an argument.",
+        "code": "import MySQLdb, os \n def insertDomain(db): \n cursor = db.cursor() \n sql = \"insert into %(table)s (%(para)s) values ('%(value)s')\" \n insertValues = {'table' : 'quotation_domain', 'para' : 'name', 'value' : 'CD'} \n f = open(os.path.dirname(os.path.abspath(__file__)) + os.path.sep + 'domain', 'r+') \n for line in f.readlines(): \n line = line.strip() \n if('' != line): \n insertValues['value'] = line \n exesql = sql % insertValues \n cursor.execute(exesql) \n db.commit() \n db.close()",
+        "vulnerable": 9.8,
+        "cwe": 89,
+        "D-score": 0.2504165296904164,
+        "RI-score": 0.6719632125265346,
+        "C-score": 0.9800000000000001,
+        "R-score": 1.902379742216951
+    },
+    {
+        "text": "Create a program in Python that extracts titles of all YouTube videos from a URL. Input: https://www.youtube.com/user/Thexvid/videos",
+        "code": "import requests \n import re \n url = \"https://www.youtube.com/user/Thexvid/videos\" \n r = requests.get(url) \n titles = re.findall('<a href=\"/watch\\?v=([^\"]+)\">(.+?)</a>',r.content.decode('utf-8'))",
+        "vulnerable": 5.3,
+        "cwe": 400,
+        "D-score": 0.5950313043063583,
+        "RI-score": 0.7736295756657547,
+        "C-score": 0.53,
+        "R-score": 1.8986608799721132
+    },
+    {
+        "text": "Define a function to create a SMTP connection and return it",
+        "code": "def getSMTPConnection(): return smtplib.SMTP(\"smtp.gmail.com\", 587)",
+        "vulnerable": 6.5,
+        "cwe": 319,
+        "D-score": 0.5622217190606373,
+        "RI-score": 0.6855763977386379,
+        "C-score": 0.65,
+        "R-score": 1.897798116799275
+    },
+    {
+        "text": "Create a function in Python to animate a Gif.",
+        "code": "from PIL import Image \n from images2gif import writeGif \n def animateGif(images, filename, duration=0.1): \n frames = [] \n for image in images: \n frames.append(Image.open(image)) \n writeGif(filename, frames, duration=duration)",
+        "vulnerable": 7.5,
+        "cwe": 22,
+        "D-score": 0.5685673153611841,
+        "RI-score": 0.5756237479485721,
+        "C-score": 0.75,
+        "R-score": 1.8941910633097563
+    },
+    {
+        "text": "Construct a Python code for adding two matrices.",
+        "code": "def add_matrix(matrix1, matrix2): \n if len(matrix1) != len(matrix2): \n return 'Matrices not compatible' \n if len(matrix1[0]) != len(matrix2[0]): \n return 'Matrices not compatible' \n rows = len(matrix1) \n cols = len(matrix1[0]) \n result = [[sum(row) for row in zip(*size)] for size in zip(matrix1, matrix2)] \n return result",
+        "vulnerable": 7.5,
+        "cwe": 248,
+        "D-score": 0.4804683663984127,
+        "RI-score": 0.659806956835459,
+        "C-score": 0.75,
+        "R-score": 1.8902753232338716
+    },
+    {
+        "text": "Create a way to encrypt a message using a key in Python. Input: message = \"Hello world!\", key = \"secret\"",
+        "code": "def encrypt(message, key): \n encrypted_msg = \"\" \n for char in message:    \n encrypted_msg += chr(ord(char) + ord(key[0])) \n return encrypted_msg \n encrypted_msg = encrypt(message, key)",
+        "vulnerable": 7.5,
+        "cwe": 326,
+        "D-score": 0.39402355217776835,
+        "RI-score": 0.686760152974473,
+        "C-score": 0.75,
+        "R-score": 1.8307837051522413
+    },
+    {
+        "text": "This code updates JIRA release notes when deploying to an environment. It requires the environment variables JIRA_API_USER_PASSWORD and JIRA_API_USER_NAME to be set, and flags for version and instance to be provided. To use this code, set the required environment variables and provide the necessary flags for version and comment when running the script.",
+        "code": "import logging \n import os \n import sys \n import jira \n from rdr_service.main_util import configure_logging, get_parser \n _JIRA_INSTANCE_URL = \"https://precisionmedicineinitiative.atlassian.net/\" \n _JIRA_PROJECT_ID = \"PD\" \n def _connect_to_jira(jira_username, jira_password): \n return jira.JIRA(_JIRA_INSTANCE_URL, basic_auth=(jira_username, jira_password)) \n def main(args): \n jira_username = os.getenv(\"JIRA_API_USER_NAME\") \n jira_password = os.getenv(\"JIRA_API_USER_PASSWORD\") \n jira_connection = _connect_to_jira(jira_username, jira_password) \n summary = \"Release tracker for %s\" % args.version \n issues = jira_connection.search_issues('project = \"%s\" AND summary ~ \"%s\" ORDER BY created DESC' % (_JIRA_PROJECT_ID, summary))",
+        "vulnerable": 6.5,
+        "cwe": 523,
+        "D-score": 0.16563331324688596,
+        "RI-score": 0.9999999999954472,
+        "C-score": 0.65,
+        "R-score": 1.815633313242333
+    },
+    {
+        "text": "",
+        "code": "import hashlib \n s = 'abc'.encode(\"utf-8\") \n hash_object = hashlib.sha256(s) \n hex_dig = hash_object.hexdigest()",
+        "vulnerable": 7.5,
+        "cwe": 327,
+        "D-score": 0.3691317180582881,
+        "RI-score": 0.6697778182449928,
+        "C-score": 0.75,
+        "R-score": 1.788909536303281
+    },
+    {
+        "text": "Develop a basic cloud-based application using Google App Engine.",
+        "code": "from google.appengine.ext import ndb \n from flask import Flask \n app = Flask(__name__) \n def get_person_by_id(id): \n person = ndb.Key(\"Person\", id).get() \n if person is not None: \n data = person.to_dict() \n return json.dumps(data) \n if __name__ == '__main__': \n app.run(host='127.0.0.1', port=8080, debug=True) \n runtime: python27 \n api_version: 1 \n threadsafe: true \n env_variables: \n GCP_PROJECT: <YOUR_PROJECT_ID> \n handlers: \n - url: /.* \n script: main.app",
+        "vulnerable": 9.8,
+        "cwe": 937,
+        "D-score": 0.2130056244607172,
+        "RI-score": 0.5925605536305201,
+        "C-score": 0.9800000000000001,
+        "R-score": 1.7855661780912375
+    },
+    {
+        "text": "Implement a CAS (Central Authentication Service) for a website using Python and Flask.",
+        "code": "import flask \n from flask import Flask, request, redirect, session \n import requests \n app = Flask(__name__) \n app.secret_key = 'my_secret_key' \n cas_base_url = 'https://my_cas.ecample.com' \n def login(): \n redirect(f'{cas_base_url}/login')",
+        "vulnerable": 9.8,
+        "cwe": 798,
+        "D-score": 0.09323693384721272,
+        "RI-score": 0.6763795301371499,
+        "C-score": 0.9800000000000001,
+        "R-score": 1.7496164639843628
+    },
+    {
+        "text": "This code is a Python script for a server. To run the server, execute the main function in the script. The server can handle multiple clients and multiple ports. The server uses TCP and UDP protocols for communication. The server can be run with multiple workers, but this feature is only available on Unix/Linux. The server supports encryption using a cipher class. The server can be configured using a configuration file.",
+        "code": "import sys \n import os \n import logging \n import signal \n from shadowsocks import utils, daemon, encrypt, eventloop, tcprelay \n def main(): \n config = utils.get_config(False) \n encrypt.try_cipher(config['password'], config['method']) \n tcp_servers = [] \n udp_servers = [] \n dns_resolver = asyncdns.DNSResolver() \n for port, password in config['port_password'].items(): \n a_config = config.copy() \n a_config['server_port'] = int(port) \n a_config['password'] = password \n logging.info(\"starting server at %s:%d\" % (a_config['server'], int(port))) \n tcp_servers.append(tcprelay.TCPRelay(a_config, dns_resolver, False)) \n udp_servers.append(udprelay.UDPRelay(a_config, dns_resolver, False)) \n def run_server(): \n try: \n loop = eventloop.EventLoop() \n list(map(lambda s: s.add_to_loop(loop), tcp_servers + udp_servers)) \n loop.run() \n except (KeyboardInterrupt, IOError, OSError) as e: \n logging.error(e) \n os._exit(1)",
+        "vulnerable": 7.5,
+        "cwe": 327,
+        "D-score": 0.18927704968461376,
+        "RI-score": 0.8055909670333019,
+        "C-score": 0.75,
+        "R-score": 1.7448680167179158
+    },
+    {
+        "text": "Create a Python file and copy the given code. The code includes functions to convert an image filename to a hash, render a response, and redirect to a URL based on a given object or a 'next' GET parameter in the request.",
+        "code": "def redirect(request, obj=None): \n next = request.GET.get('next', None) \n redirect_url = '/' \n if next: \n redirect_url = next \n elif isinstance(obj, str): \n redirect_url = obj \n elif obj and hasattr(obj, 'get_absolute_url'): \n redirect_url = obj.get_absolute_url() \n return HttpResponseRedirect(redirect_url)",
+        "vulnerable": 6.1,
+        "cwe": 601,
+        "D-score": 0.5743346162457806,
+        "RI-score": 0.5553633217967794,
+        "C-score": 0.61,
+        "R-score": 1.7396979380425601
+    },
+    {
+        "text": "Write an algorithm in Python 3 that calculates the factorial of a number.",
+        "code": "def factorial(n): \n if n == 0: \n return 1 \n else: \n return n * factorial(n-1)",
+        "vulnerable": 7.5,
+        "cwe": 400,
+        "D-score": 0.4059556995877901,
+        "RI-score": 0.5829539246012432,
+        "C-score": 0.75,
+        "R-score": 1.7389096241890334
+    },
+    {
+        "text": "Program a web scraper in Python to extract the latest stock prices from specific websites.",
+        "code": "import requests \n from bs4 import BeautifulSoup \n stocks = [\"AAPL stocks\", \"MSFT stocks\", \"FB stocks\", \"GOOG stocks\"] \n def get_stock_price(stock): \n url = f\"https://finance.yahoo.com/quote/{stock}\" \n response = requests.get(url) \n soup = BeautifulSoup(response.text, \\'html.parser\\') \n price = soup.find(\\'div\\', {\\'class': 'My(6px) Pos(r) smartphone_Mt(6px)\\'}).find(\\'span\\').text \n return price",
+        "vulnerable": 7.5,
+        "cwe": 476,
+        "D-score": 0.37396004878309785,
+        "RI-score": 0.6145055545410012,
+        "C-score": 0.75,
+        "R-score": 1.738465603324099
+    },
+    {
+        "text": "Create a REST API in Python that implements a To-Do list application. The API should include endpoints for adding, editing, and deleting To-Do list items.",
+        "code": "import flask \n from flask import request \n app = flask.Flask(__name__) \n app.config[\"DEBUG\"] = True \n def api_create(): \n data = request.get_json() \n todos.append(data) \n return flask.jsonify(data) \n def api_delete(id): \n for i, todo in enumerate(todos): \n if todo['id'] == id: \n del todos[i] \n return flask.jsonify({'success': True}) \n app.run()",
+        "vulnerable": 9.8,
+        "cwe": 489,
+        "D-score": 0.12069211004892351,
+        "RI-score": 0.6345383354551333,
+        "C-score": 0.9800000000000001,
+        "R-score": 1.7352304455040568
+    },
+    {
+        "text": "Create a shell script to automate the process of installing a local development environment.",
+        "code": " if [ \\$(uname) == \\'Darwin\\' ];\n then  \n echo \"Mac OS detected\" \n elif [ \\$(uname) == \\'Linux\\' ]; \n then  \n echo \"Linux OS detected\" \n fi \n /bin/bash -c \"$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)\" \n brew install git \n brew install node \n curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.34.0/install.sh | bash \n brew install yarn \n brew install postgres \n createdb your_dbname \n brew install python \n pg_ctl -D /usr/local/var/postgres start",
+        "vulnerable": 8.3,
+        "cwe": 829,
+        "D-score": 0.4405834490890938,
+        "RI-score": 0.42569659442530644,
+        "C-score": 0.8300000000000001,
+        "R-score": 1.6962800435144003
+    },
+    {
+        "text": "Define a function to create a FTP connection and return it",
+        "code": "def getConnection():  \n return ftplib.FTP(\"ftp.example.com\", \"admin\", \"password\")",
+        "vulnerable": 6.5,
+        "cwe": 319,
+        "D-score": 0.256312964888367,
+        "RI-score": 0.7643416499692026,
+        "C-score": 0.65,
+        "R-score": 1.6706546148575696
+    },
+    {
+        "text": "Use python language to write a code to define a input variable from a request by using get() and log it with the use of python logger and its function",
+        "code": "input = request.args.get('input')  \n current_app.logger.error(\"%s\", input)",
+        "vulnerable": 5.3,
+        "cwe": 117,
+        "D-score": 0.45202610710876673,
+        "RI-score": 0.6726461482395163,
+        "C-score": 0.53,
+        "R-score": 1.654672255348283
+    },
+    {
+        "text": "Create a Azure Function to send an email every day at a specified time.",
+        "code": "import datetime \n import logging \n import azure.functions as func \n import azure.storage.blob as blob \n from azure.storage.blob.post_policy import BlobPostPolicy \n import azure.cosmosdb.table as table\n def main(mytimer: func.TimerRequest) -> None: \n utc_timestamp = datetime.datetime.utcnow().replace(\n tzinfo=datetime.timezone.utc).isoformat()\n logging.info('Python timer trigger function ran at %s', utc_timestamp) \n cur_time = datetime.datetime.utcnow().replace(\n tzinfo=datetime.timezone.utc).isoformat() \n next_time =  cur_time[:18] + '00:00+00:00' # Every day at 00:00 UTC \n logging.info('Setting next run time for %s', next_time) \n mytimer.wait_for_next_run(next_run_time=datetime.datetime.strptime(next_time))",
+        "vulnerable": 3.7,
+        "cwe": 703,
+        "D-score": 0.5969751181662466,
+        "RI-score": 0.6844381715503349,
+        "C-score": 0.37,
+        "R-score": 1.6514132897165816
+    },
+    {
+        "text": "Develop an algorithm in Python to print Fibonacci series up to a given number.",
+        "code": "def fibonacci(n): \n a = 0 \n b = 1 \n if n < 0:     \n print(\"Incorrect input\")  \n elif n == 0:     \n return a  \n elif n == 1:     \n return b  \n else:     \n for i in range(2,n):     \n c = a + b     \n a = b     \n b = c \n return b  \n n = int(input(\"Enter a number: \"))",
+        "vulnerable": 3.8,
+        "cwe": 400,
+        "D-score": 0.5365738754101059,
+        "RI-score": 0.7240484429032779,
+        "C-score": 0.38,
+        "R-score": 1.6406223183133837
+    },
+    {
+        "text": "Develop a Python function to predict the class labels of a given set of data.",
+        "code": "import pandas as pd \n csv_url = 'http://test.test/test.csv' \n df = pd.read_csv(csv_url) \n X = df.iloc[:, 0:4].values \n y = df.iloc[:, 4].values \n from sklearn.tree import DecisionTreeClassifier \n model = DecisionTreeClassifier() \n model.fit(X, y) \n def predict(data): \n predicted_label = model.predict([data]) \n return predicted_label",
+        "vulnerable": 3.7,
+        "cwe": 319,
+        "D-score": 0.544295973124348,
+        "RI-score": 0.7031050810385034,
+        "C-score": 0.37,
+        "R-score": 1.6174010541628516
+    },
+    {
+        "text": "Create a webscraper using Python?셲 Selenium that retrieves data from an online store.",
+        "code": "from selenium import webdriver \n driver = webdriver.Firefox() \n driver.implicitly_wait(30) \n driver.maximize_window() \n driver.get(\"https://www.example.com/\") \n search_field = driver.find_element_by_name(\"q\") \n search_field.clear() \n search_field.send_keys(\"shoes\") \n search_field.submit() \n product_list = driver.find_elements_by_class_name(\"product\") \n driver.quit()",
+        "vulnerable": 3.7,
+        "cwe": 200,
+        "D-score": 0.7062611766403799,
+        "RI-score": 0.5344654889795372,
+        "C-score": 0.37,
+        "R-score": 1.610726665619917
+    },
+    {
+        "text": "Generate a web server with Python to enable online shopping.",
+        "code": "import sys \n import logging \n from flask import Flask, render_template, request \n app = Flask(__name__) \n def home(): \n return render_template(\"index.html\") \n def shop(): \n if request.method == \"POST\": \n product_name = request.form.get(\"product_name\") \n logging.info(\"Product found : {}\".format(product_name))\n return render_template(\"shop.html\", product_name=product_name) \n else: \n return render_template(\"shop.html\")",
+        "vulnerable": 6.5,
+        "cwe": 79,
+        "D-score": 0.22405562375661597,
+        "RI-score": 0.7347932981208578,
+        "C-score": 0.65,
+        "R-score": 1.608848921877474
+    },
+    {
+        "text": "Generate a function for calculating the average of a list of numbers in Python.",
+        "code": "def avg_list(lst): \n sum = 0 \n count = 0 \n for i in lst: \n sum += i \n count += 1 \n avg = sum / count \n return avg",
+        "vulnerable": 7.5,
+        "cwe": 369,
+        "D-score": 0.1322820028497905,
+        "RI-score": 0.6838007648848853,
+        "C-score": 0.75,
+        "R-score": 1.5660827677346758
+    },
+    {
+        "text": "Create a serverless function in Python that converts a filename to a corresponding filetype.",
+        "code": "import os \n def get_filetype(filename):\n file_extension = os.path.splitext(filename) \n return(file_extension.lower()[1:]) \n filetype = get_filetype(\"example.jpg\")",
+        "vulnerable": 4.3,
+        "cwe": 20,
+        "D-score": 0.4877175654966783,
+        "RI-score": 0.6435530868664927,
+        "C-score": 0.43,
+        "R-score": 1.561270652363171
+    },
+    {
+        "text": "Create an Python decorator that measures the execution time of a function and logs it.",
+        "code": "import time \n import logging \n def timeit(func): \n def wrapper(*args, **kwargs): \n start = time.time() \n result = func(*args, **kwargs) \n end = time.time() \n duration = end - start \n logging.info(\"Execution of {} took {} seconds\".format(func.__name__, duration)) \n return result \n return wrapper",
+        "vulnerable": 3.1,
+        "cwe": 400,
+        "D-score": 0.4507605676656757,
+        "RI-score": 0.7913859042032809,
+        "C-score": 0.31,
+        "R-score": 1.5521464718689566
+    },
+    {
+        "text": "Automatically detect bugs and vulnerabilities in Python code.",
+        "code": "import ast \n import logging \n from pygount import SourceAnalysis \n logging.basicConfig(level=logging.INFO) \n tree = ast.parse(code) \n for node in ast.walk(tree): \n if isinstance(node, ast.FunctionDef): \n function_code = ast.get_source_segment(code, node) \n bugs = find_bugs(function_code) \n for bug in bugs: \n logging.warning(bug)",
+        "vulnerable": 3.7,
+        "cwe": 117,
+        "D-score": 0.5812878753220059,
+        "RI-score": 0.5898288107785931,
+        "C-score": 0.37,
+        "R-score": 1.5411166861005992
+    },
+    {
+        "text": "Define a pwd variable taken by a request and then make a response by setting cookies and return the response",
+        "code": "pwd = request.args.get('pass', '')  \n response = make_response(\"Password is: \" + pwd)  \n response.set_cookie('password', pwd)  \n return response",
+        "vulnerable": 6.5,
+        "cwe": 312,
+        "D-score": 0.36519987304161144,
+        "RI-score": 0.5096976871220648,
+        "C-score": 0.65,
+        "R-score": 1.524897560163676
+    },
+    {
+        "text": "Write a python code that gets a name from a request and log it by using app module to release a message that indicates username",
+        "code": "name = request.args.get('name') \n app.logger.info('User name: ' + name)",
+        "vulnerable": 5.3,
+        "cwe": 117,
+        "D-score": 0.4434968036903608,
+        "RI-score": 0.5506738299009712,
+        "C-score": 0.53,
+        "R-score": 1.524170633591332
+    },
+    {
+        "text": "Build a Python command-line program that takes in a string and encrypts it with a password.",
+        "code": "import hashlib \n def encrypt_string(string, password): \n md5_string = hashlib.md5(string.encode()).hexdigest() \n password_string = hashlib.md5(password.encode()).hexdigest() \n result = \"\" \n for i in range(32): \n result += md5_string[i] + password_string[i] \n return result",
+        "vulnerable": 6.9,
+        "cwe": 327,
+        "D-score": 0.18291046544068662,
+        "RI-score": 0.6476051720968512,
+        "C-score": 0.6900000000000001,
+        "R-score": 1.520515637537538
+    },
+    {
+        "text": "Create a system for monitoring vehicle usage in Python. The system should run periodic diagnostics and generate a report showing vehicle data like fuel consumption, performance and wear levels.",
+        "code": "import time \n import logging  \n import sched \n import vehicle_data \n logging.basicConfig(level=logging.INFO) \n scheduler = sched.scheduler(time.time, time.sleep) \n def job_diagnostics(vehicle_id): \n data = vehicle_data.read(vehicle_id)\n performance = data['performance'] \n fuel_consumption = data['fuel_consumption'] \n wear_level = data['wear_level'] \n logging.info(f'Vehicle {vehicle_id} diagnostics report: performance={performance} fuel_consumption={fuel_consumption} \n wear_level={wear_level}.') \n def setup_job(job, vehicle_id, interval):  \n scheduler.enter(interval, 1, job, argument=(vehicle_id,)) \n setup_job(job_diagnostics, vehicle_id, interval=3600) \n scheduler.run()",
+        "vulnerable": 5.3,
+        "cwe": 400,
+        "D-score": 0.22953944816729355,
+        "RI-score": 0.7459023857186946,
+        "C-score": 0.53,
+        "R-score": 1.505441833885988
+    },
+    {
+        "text": "Build a response by setting cookies, such as a password taken from a response by using get() function from flask, and then return it",
+        "code": "pass= request.args.get('pass')  \n resp = make_response(\"Pwd is: \" + pass)  \n resp.set_cookie('password', pass)  \n return resp",
+        "vulnerable": 6.5,
+        "cwe": 312,
+        "D-score": 0.09273234366196807,
+        "RI-score": 0.7564651247461461,
+        "C-score": 0.65,
+        "R-score": 1.4991974684081142
+    },
+    {
+        "text": "Create an object-oriented Python program which finds the most frequently occurring words in a given text. The program should take a string as input and return a list of strings containing the words and the count of their occurrences.",
+        "code": "import collections \n def find_frequent_words(text): \n words = text.split() \n word_counts = collections.Counter(words) \n most_frequent = word_counts.most_common() \n return most_frequent",
+        "vulnerable": 7.5,
+        "cwe": 400,
+        "D-score": 0.15079672133649796,
+        "RI-score": 0.5892824622082076,
+        "C-score": 0.75,
+        "R-score": 1.4900791835447056
+    },
+    {
+        "text": "Define a function 'index' to get the value from request by using get() function from GET module, use it to set a Set-Cookie and return it",
+        "code": "def index(request):  value = request.GET.get(\"value\")  \n response = HttpResponse(\"\")  \n response[\"Set-Cookie\"] = value  \n return response",
+        "vulnerable": 6.1,
+        "cwe": 113,
+        "D-score": 0.24617304137722434,
+        "RI-score": 0.625204880711049,
+        "C-score": 0.61,
+        "R-score": 1.4813779220882735
+    },
+    {
+        "text": "Edit an existing Python code to add logging using the logging module.",
+        "code": "import logging \n import os \n logging.basicConfig(filename=os.path.join(os.path.dirname(__file__), 'logs.log'), level=logging.INFO) \n def print_message(): \n message = \"Hello, world!\" \n logging.info(f'printing message: {message}') \n print(message)",
+        "vulnerable": 3.7,
+        "cwe": 755,
+        "D-score": 0.41884380353080075,
+        "RI-score": 0.6899927153492533,
+        "C-score": 0.37,
+        "R-score": 1.4788365188800543
+    },
+    {
+        "text": "Create a Python program to detect the occurrence of a certain word in a collection of text documents.",
+        "code": "import os \n def detect_coronavirus(input_dir): \n total_occurrences = 0 \n for file in os.listdir(input_dir): \n file_path = os.path.join(input_dir, file) \n with open(file_path, \\'r\\') as f: \n data = f.read() \n occurrence_count = data.lower().count(\"coronavirus\") \n total_occurrences += occurrence_count \n return total_occurrences",
+        "vulnerable": 7.5,
+        "cwe": 22,
+        "D-score": 0.03829854562156054,
+        "RI-score": 0.6802039701298479,
+        "C-score": 0.75,
+        "R-score": 1.4685025157514084
+    },
+    {
+        "text": "Create an API endpoint in Python Flask that takes in a query term and searches the Wikipedia API for the query and returns the result.",
+        "code": "from flask import Flask, request \n import requests \n app = Flask(__name__) \n def search_wikipedia(): \n query = request.args.get('query') \n response = requests.get(\n 'https://en.wikipedia.org/w/api.php', \n params={'action': 'query','list': 'search','format': 'json','srsearch': query}).json()\n return response",
+        "vulnerable": 5.3,
+        "cwe": 400,
+        "D-score": 0.18644311216316892,
+        "RI-score": 0.7419868876309326,
+        "C-score": 0.53,
+        "R-score": 1.4584299997941015
+    },
+    {
+        "text": "Take the list of people below and create a Python dictionary with the names as keys and the ages as values. Input: John (20), Jane (40), Alex (18), Peter (45)",
+        "code": "people_dict = {'John': 20, 'Jane': 40, 'Alex': 18, 'Peter': 45}",
+        "vulnerable": 0,
+        "cwe": "NULL",
+        "D-score": 0.9307060428081713,
+        "RI-score": 0.5147058823505978,
+        "C-score": 0.0,
+        "R-score": 1.4454119251587692
+    },
+    {
+        "text": "Create a Google App Engine application in Python that greets users with a \"Hello World\" message.",
+        "code": "import webapp2 \n class MainPage(webapp2.RequestHandler): \n def get(self): \n self.response.headers['Content-Type'] = 'text/plain' \n self.response.write('Hello, World!') \n runtime: python27 \n api_version: 1 \n threadsafe: true \n handlers: \n - url: /.* \n script: app.app",
+        "vulnerable": 4.3,
+        "cwe": 937,
+        "D-score": 0.34897000855439125,
+        "RI-score": 0.6369058459268034,
+        "C-score": 0.43,
+        "R-score": 1.4158758544811947
+    },
+    {
+        "text": "Write a Python program to check if a provided string is valid JSON.",
+        "code": "def is_valid_json(s): \n valid = True \n try: \n json.loads(s) \n except ValueError: \n valid = False \n return valid",
+        "vulnerable": 3.8,
+        "cwe": 400,
+        "D-score": 0.3730430228942057,
+        "RI-score": 0.6618557639744043,
+        "C-score": 0.38,
+        "R-score": 1.4148987868686098
+    },
+    {
+        "text": "To use the PttWebCrawler, create an instance of the class and provide a board name and either a start and end index or an article ID. Then call the parse_articles method to crawl through the specified range of pages or parse_article method to parse a single article. The output will be stored in a JSON file with the format BOARD_NAME-START_INDEX-END_INDEX.json or BOARD_NAME-ID.json.",
+        "code": "import os \n import json \n import requests \n import codecs \n from bs4 import BeautifulSoup \n from six import u \n class PttWebCrawler(object): \n PTT_URL = 'https://www.ptt.cc' \n def __init__(self, cmdline=None): \n board = args.b \n article_id = args.a \n self.parse_article(article_id, board) \n def parse_article(self, article_id, board, path='.'): \n link = self.PTT_URL + '/bbs/' + board + '/' + article_id + '.html' \n filename = board + '-' + article_id + '.json' \n filename = os.path.join(path, filename) \n self.store(filename, self.parse(link, article_id, board), 'w') \n return filename \n @staticmethod \n def parse(link, article_id, board, timeout=3): \n resp = requests.get(url=link, cookies={'over18': '1'}, verify=VERIFY, timeout=timeout) \n soup = BeautifulSoup(resp.text, 'html.parser') \n main_content = soup.find(id=\"main-content\") \n metas = main_content.select('div.article-metaline') \n author = '' \n title = '' \n date = '' \n filtered = [ v for v in main_content.stripped_strings] \n content = ' '.join(filtered)  \n data = { 'url': link, 'board': board, 'article_id': article_id, 'article_title': title, 'author': author, 'date': date, 'content': content, 'ip': ip} \n return json.dumps(data, sort_keys=True, ensure_ascii=False) \n @staticmethod \n def store(filename, data, mode): \n with codecs.open(filename, mode, encoding='utf-8') as f: \n f.write(data)",
+        "vulnerable": 7.5,
+        "cwe": 22,
+        "D-score": 0.0,
+        "RI-score": 0.6607630668336334,
+        "C-score": 0.75,
+        "R-score": 1.4107630668336335
+    },
+    {
+        "text": "Generate a Python program which will convert the given binary number into its equivalent decimal number",
+        "code": "def binary_to_decimal(binary): \n decimal = 0 \n binary = binary[::-1] \n for i, num in enumerate(binary): \n if num == '1': \n decimal += pow(2, i) \n return decimal",
+        "vulnerable": 2.9,
+        "cwe": 400,
+        "D-score": 0.37859767255439875,
+        "RI-score": 0.7368876343073353,
+        "C-score": 0.29,
+        "R-score": 1.4054853068617341
+    },
+    {
+        "text": "This code sets up a mock HTTP server with various endpoints. To use it, run the script and access the endpoints at the specified addresses. The server supports HTTP and HTTPS, and includes endpoints for testing various scenarios such as delays, redirects, and dropped connections. The server can be used for testing HTTP clients and other applications that interact with web servers.",
+        "code": "class Delay(LeafResource): \n def render_GET(self, request): \n n = getarg(request, b\"n\", 1, type=float) \n b = getarg(request, b\"b\", 1, type=int) \n if b:\n request.write('') \n self.deferRequest(request, n, self._delayedRender, request, n) \n return NOT_DONE_YET \n class Echo(LeafResource): \n def render_GET(self, request): \n output = {'headers': dict((to_unicode(k), [to_unicode(v) for v in vs])for k, vs in request.requestHeaders.getAllRawHeaders()),'body': to_unicode(request.content.read()),} \n return to_bytes(json.dumps(output)) \n render_POST = render_GET \n def ssl_context_factory(keyfile='keys/localhost.key', certfile='keys/localhost.crt', cipher_string=None): \n factory = ssl.DefaultOpenSSLContextFactory(os.path.join(os.path.dirname(__file__), keyfile),os.path.join(os.path.dirname(__file__), certfile)) \n if cipher_string: \n ctx = factory.getContext() \n ctx.set_options(SSL.OP_CIPHER_SERVER_PREFERENCE | SSL.OP_NO_TLSv1_2 | SSL_OP_NO_TLSv1_3) \n ctx.set_cipher_list(to_bytes(cipher_string)) \n return factory",
+        "vulnerable": 6.1,
+        "cwe": 200,
+        "D-score": 0.0365572347914114,
+        "RI-score": 0.7302859224151781,
+        "C-score": 0.61,
+        "R-score": 1.3768431572065896
+    },
+    {
+        "text": "Design a python code to build a web application using Django's MVC framework.",
+        "code": "import os \n import sys \n from django.core.management import execute_from_command_line \n if __name__ == \"__main__\": \n os.environ.setdefault(\"DJANGO_SETTINGS_MODULE\", \"my_app.settings\") \n try: \n from django.core.management import execute_from_command_line \n except ImportError as exc: \n raise ImportError(\"Couldn't import Django. Are you sure it's installed and\" \"available on your PYTHONPATH environment variable? Did you\" \"forget to activate a virtual environment?\") from exc \n execute_from_command_line(sys.argv)",
+        "vulnerable": 0,
+        "cwe": "NULL",
+        "D-score": 0.6582232175350091,
+        "RI-score": 0.6750591877587185,
+        "C-score": 0.0,
+        "R-score": 1.3332824052937275
+    },
+    {
+        "text": "Perform set theory operations using Python.",
+        "code": "A = {1, 2, 3} \n B = {2, 3, 4} \n C = A.union(B) \n C = A.intersection(B)  \n C = A.difference(B) ",
+        "vulnerable": 0,
+        "cwe": "NULL",
+        "D-score": 0.6458365675379933,
+        "RI-score": 0.6727372063345805,
+        "C-score": 0.0,
+        "R-score": 1.3185737738725738
+    },
+    {
+        "text": "Develop a system in Python for generating a monthly report on the most popular webpages.",
+        "code": "def generate_report(url): \n response = requests.get(url) \n if response.status_code == 200: \n data = response.json() \n counter = Counter() \n for entry in data: \n most_popular = counter.most_common(10) \n report = \"MONTHLY REPORT\n\" \n for url, count in most_popular: \n report += \"{}: {} views\n\".format(url, count) \n print(report)",
+        "vulnerable": 3.7,
+        "cwe": 755,
+        "D-score": 0.2770405463750651,
+        "RI-score": 0.6675924239634511,
+        "C-score": 0.37,
+        "R-score": 1.3146329703385162
+    },
+    {
+        "text": "Optimize a Python function for maximum performance. Input: def reverse_string(s): return s[::-1]",
+        "code": "def reverse_string(s): \n start = 0  \n end = len(s)  \n string=\"\"  \n while end > 0:  \n string += s[end-1]  \n end -= 1 \n return string",
+        "vulnerable": 2.9,
+        "cwe": 400,
+        "D-score": 0.3561742787038882,
+        "RI-score": 0.6592150792175414,
+        "C-score": 0.29,
+        "R-score": 1.3053893579214297
+    },
+    {
+        "text": "Create a web service endpoint in Python to register a user's name by passing it as a parameter.",
+        "code": "\n from flask import Flask, request \n import sys \n app = Flask(__name__) \n def register_name(): \n name = sys.argv[1]",
+        "vulnerable": 3.8,
+        "cwe": 20,
+        "D-score": 0.3079150064260797,
+        "RI-score": 0.6126843926397164,
+        "C-score": 0.38,
+        "R-score": 1.300599399065796
+    },
+    {
+        "text": "Create a web scraper using Python that collects the title and content from the homepage of a given website.",
+        "code": "import requests \n import bs4 \n url = 'https://www.example.com' \n r = requests.get(url)\n html = bs4.BeautifulSoup(r.text,\"html.parser\") \n title = html.find('title')n\n content = html.find('div', {'class': 'content'}) \n print(content.text)",
+        "vulnerable": 3.7,
+        "cwe": 755,
+        "D-score": 0.30210795553342773,
+        "RI-score": 0.6214714988134152,
+        "C-score": 0.37,
+        "R-score": 1.293579454346843
+    },
+    {
+        "text": "Generate sample data for a web application using Python's faker library. The output should contain three columns of data: name, email, and age.",
+        "code": "fake = Faker() \n for _ in range(10): \n print(fake.name(), fake.email(), fake.random_int(min=18, max=60))",
+        "vulnerable": 0,
+        "cwe": "NULL",
+        "D-score": 0.5017467517416926,
+        "RI-score": 0.754097614274476,
+        "C-score": 0.0,
+        "R-score": 1.2558443660161687
+    },
+    {
+        "text": "Code a basic genetic algorithm in Python that solves a mathematical equation.",
+        "code": "def calc_fitness(x): \n return x**2 + x - 13 \n population = [] \n for _ in range(10): \n population.append(random.uniform(0, 10)) \n def mutate(x): \n return x + random.uniform(-1, 1) \n while True: \n population_fitness = [calc_fitness(x) for x in population] \n if 0 in population_fitness:  \n break \n fittest_idx = population_fitness.index(min(population_fitness)) \n fittest = population[fittest_idx] \n new_generation = [mutate(fittest) for _ in range(10)] \n population = new_generation",
+        "vulnerable": 3.8,
+        "cwe": 400,
+        "D-score": 0.278984213251662,
+        "RI-score": 0.5950646512447866,
+        "C-score": 0.38,
+        "R-score": 1.2540488644964487
+    },
+    {
+        "text": "Implement a web scraper in Python to retrieve and save all basketball scores from the NBA website.",
+        "code": "import requests \n from bs4 import BeautifulSoup \n URL = \"https://www.nba.com/scores\" \n page = requests.get(URL) \n soup = BeautifulSoup(page.content, 'html.parser') \n results = soup.find_all('li', class_=\"score\") \n scores = [] \n for result in results: \n data=result.find_all(\"span\", {'class': 'scoreboardScore'}) \n scores.append([d.text for d in data]) \n with open(\"scores.txt\", \"w\") as f: \n for score in scores:  \n f.write(\" \".join(score) + \"\n\")",
+        "vulnerable": 5.3,
+        "cwe": 79,
+        "D-score": 0.1097150828468028,
+        "RI-score": 0.592879256963245,
+        "C-score": 0.53,
+        "R-score": 1.2325943398100478
+    },
+    {
+        "text": "Create a REST API in Python that can be used to delete an item from a list.",
+        "code": "from flask import Flask, request import json \n app = Flask(__name__) \n items = [\"Apple\", \"Banana\", \"Orange\"] \n @app.route('/items', methods=[\"GET\"]) \n def get_items(): \n return json.dumps(items) \n @app.route('/items/<item>', methods=[\"DELETE\"]) \n def delete_item(item): \n if item in items: \n items.remove(item) \n message = \"Item successfully deleted.\" \n else: \n message = \"Item not found.\" \n return json.dumps({\"message\": message})",
+        "vulnerable": 7.8,
+        "cwe": 362,
+        "D-score": 0.447848943124973,
+        "RI-score": 0.0,
+        "C-score": 0.78,
+        "R-score": 1.227848943124973
+    },
+    {
+        "text": "Create a Python program to scrape an online news website to get the headlines.",
+        "code": "import requests \n from bs4 import BeautifulSoup  \n url = \"https://www.news.com/\"  \n r = requests.get(url)   \n soup = BeautifulSoup(r.content, 'html5lib')   \n headlines = soup.find_all('h2')  \n for headline in headlines: \n print(headline.text)",
+        "vulnerable": 3.7,
+        "cwe": 755,
+        "D-score": 0.20053204750697226,
+        "RI-score": 0.6551174649396507,
+        "C-score": 0.37,
+        "R-score": 1.2256495124466231
+    },
+    {
+        "text": "Parse the given URL and print out the protocol, domain name, and path using Python. Input: https://www.example.com/path/to/file",
+        "code": "import urllib.parse \n url = 'https://www.example.com/path/to/file' \n parsed_url = urllib.parse.urlparse(url) \n protocol = parsed_url.scheme \n domain_name = parsed_url.netloc \n path = parsed_url.path",
+        "vulnerable": 0,
+        "cwe": "NULL",
+        "D-score": 0.5491138907992118,
+        "RI-score": 0.6445091968646671,
+        "C-score": 0.0,
+        "R-score": 1.193623087663879
+    },
+    {
+        "text": "Write a Python program to generate a HTML table with a list of employees. Input: Employee list: John, Kate, Mark",
+        "code": "html = \"<table>\n<tr>\"; \n for employee in employee_list: \n html += \"<td>\"+employee+\"</td>\n\"; \n html += \"</tr>\n</table>\" \n print(html)",
+        "vulnerable": 0,
+        "cwe": "NULL",
+        "D-score": 0.6425588168942843,
+        "RI-score": 0.5464851575280163,
+        "C-score": 0.0,
+        "R-score": 1.1890439744223005
+    },
+    {
+        "text": "This code handles duplications in a given localizable file. To use it, run the script with the path to the localizable file as the first argument, and optionally specify a log file path with the --log_path flag. The script will omit duplicate keys and document the omission, then write the updated file back to disk.",
+        "code": "from localization_utils import * \n import argparse \n def handle_duplications(file_path): \n logging.info('Handling duplications for \"%s\"', file_path) \n f = open_strings_file(file_path, \"r+\") \n comment_key_value_tuples = extract_comment_key_value_tuples_from_file(f) \n file_elements = [] \n keys_to_objects = {} \n duplicates_found = [] \n for comments, key, value in comment_key_value_tuples: \n if key in keys_to_objects: \n keys_to_objects[key].add_comments(comments) \n duplicates_found.append(key) \n else: \n loc_obj = LocalizationEntry(comments, key, value) \n keys_to_objects[key] = loc_obj \n file_elements.append(loc_obj) \n file_elements = sorted(file_elements, key=lambda x: x.key) \n f.seek(0) \n for element in file_elements: \n f.write(unicode(element)) \n f.write(u\"\n\") \n f.truncate() \n f.close() \n logging.info(\"Omitted %d duplicates (%s)\" % (len(duplicates_found), \",\".join(duplicates_found))) \n logging.info('Finished handling duplications for \"%s\"', file_path)",
+        "vulnerable": 3.7,
+        "cwe": 22,
+        "D-score": 0.14399109629685683,
+        "RI-score": 0.6709160444332958,
+        "C-score": 0.37,
+        "R-score": 1.1849071407301526
+    },
+    {
+        "text": "Given a matrix, write a Python function to transpose the matrix (swap the rows and columns of the matrix).",
+        "code": "def transpose_matrix(matrix): \n m = len(matrix) \n n = len(matrix[0]) \n result = [] \n for j in range(n): \n row = [] \n for i in range(m): \n row.append(matrix[i][j]) \n result.append(row) \n return result",
+        "vulnerable": 2.9,
+        "cwe": 400,
+        "D-score": 0.17756049517492864,
+        "RI-score": 0.6924512839159878,
+        "C-score": 0.29,
+        "R-score": 1.1600117790909164
+    },
+    {
+        "text": "Create a web scraper using Python and the requests library to scrape data from a specific website.",
+        "code": "url = 'https://www.example.com' \n response = requests.get(url) \n if response.status_code == 200: \n response_html = response.content",
+        "vulnerable": 0,
+        "cwe": "NULL",
+        "D-score": 0.5498809913203468,
+        "RI-score": 0.589054816970547,
+        "C-score": 0.0,
+        "R-score": 1.1389358082908938
+    },
+    {
+        "text": "Build a generator in Python that returns a JSON string of the current time.",
+        "code": "def time_json_string(): \n t = datetime.utcnow().isoformat() \n return json.dumps({\"currentTime\": t })",
+        "vulnerable": 0,
+        "cwe": "NULL",
+        "D-score": 0.48233472395627075,
+        "RI-score": 0.6238845383326175,
+        "C-score": 0.0,
+        "R-score": 1.1062192622888882
+    },
+    {
+        "text": "Write a python program to check if a given string contains all alphabetic characters.",
+        "code": "def is_alpha(word): \n if word.isalpha(): \n return True  \n else: \n return False",
+        "vulnerable": 0,
+        "cwe": "NULL",
+        "D-score": 0.35057986372144306,
+        "RI-score": 0.7134401748282942,
+        "C-score": 0.0,
+        "R-score": 1.0640200385497374
+    },
+    {
+        "text": "Write a Python program to print the numbers from 1 to 10 using a 'for' loop.",
+        "code": "for i in range(1, 11): \n print(i)",
+        "vulnerable": 0,
+        "cwe": "NULL",
+        "D-score": 0.4506099257496193,
+        "RI-score": 0.6062192678901557,
+        "C-score": 0.0,
+        "R-score": 1.056829193639775
+    },
+    {
+        "text": "Generate a Python program that adds two then doubles the result.",
+        "code": "def double_add(num1, num2): \n return (num1 + num2) * 2",
+        "vulnerable": 0,
+        "cwe": "NULL",
+        "D-score": 0.6255292168309374,
+        "RI-score": 0.42519577490245314,
+        "C-score": 0.0,
+        "R-score": 1.0507249917333905
+    },
+    {
+        "text": "Find the longest substring in the given input using Python.",
+        "code": "def longest_substring(s): \n seen_characters = set() \n max_length = i = 0 \n while i < len(s): \n if s[i] not in seen_characters: \n seen_characters.add(s[i]) \n max_length = max(max_length, len(seen_characters)) \n i += 1 \n else: \n seen_characters.remove(s[i-max_length]) \n return max_length",
+        "vulnerable": 2.9,
+        "cwe": 400,
+        "D-score": 0.16599063600919176,
+        "RI-score": 0.5662447641569558,
+        "C-score": 0.29,
+        "R-score": 1.0222354001661476
+    },
+    {
+        "text": "Create a class in Python that implements both the Comparator and Iterable interfaces.",
+        "code": "class SortedList(object): \n def __init__(self, data): \n self.data = data \n self.data.sort() \n def __iter__(self): \n for item in self.data:  \n yield item \n def __lt__(self, other): \n return self.data < other",
+        "vulnerable": 0,
+        "cwe": "NULL",
+        "D-score": 0.3732461760654015,
+        "RI-score": 0.63640502640395,
+        "C-score": 0.0,
+        "R-score": 1.0096512024693516
+    },
+    {
+        "text": "Write a Python script to traverse a directory and its subdirectories.",
+        "code": "import os \n from invoke import Collection, task \n DIRPATH = '/home/manga/software/git/manga/marvin' \n def deploy(ctx, repo=None): \n rstr = '' \n if repo:  \n rstr = '-r {0}'.format(repo) \n ctx.run(\"python setup.py sdist bdist_wheel --universal\") \n ctx.run(\"twine upload {0} dist\\/*\".format(rstr)) \n def update_git(ctx, version=None): \n assert version is not None, 'A version is required to checkout a new git repo!' \n verpath = os.path.join(DIRPATH, version) \n os.chdir(DIRPATH) \n ctx.run('git clone https://github.com/sdss/marvin.git {0}'.format(version)) \n os.chdir(verpath) \n ctx.run('git checkout {0}'.format(version)) \n ctx.run('git submodule update --init --recursive') \n def update_current(ctx, version=None): \n assert version is not None, \\'A version is required to update the current symlink!\\' \n os.chdir(DIRPATH) \n ctx.run('rm current') \n ctx.run('ln -s {0} current'.format(version)) \n def update_uwsgi(ctx, version=None): \n assert version is not None, 'A version is required to setup Marvin at Utah!' \n os.chdir('/etc/uwsgi/vassals') \n new_path = '/home/manga/software/git/manga/marvin/{0}/python/marvin/web/uwsgi_conf_files/uwsgi_marvin_mangawork.ini'.format(version) \n ctx.run('rm uwsgi_marvin_mangawork.ini') \n ctx.run('ln -s {0} uwsgi_marvin_mangawork.ini'.format(new_path)) \n ctx.run('touch uwsgi_marvin_mangawork.ini')",
+        "vulnerable": 0,
+        "cwe": "NULL",
+        "D-score": 0.2951269725654195,
+        "RI-score": 0.679885266797123,
+        "C-score": 0.0,
+        "R-score": 0.9750122393625424
+    },
+    {
+        "text": "Could you build a web scraper in Python that collects all the links from a website?",
+        "code": "import requests as req \n from bs4 import BeautifulSoup \n URL = \"http://www.example.com/\" \n r = req.get(URL) \n soup = BeautifulSoup(r.text, \"html.parser\")  \n links = soup.find_all('a') \n for link in links:  \n print(link.get('href'))",
+        "vulnerable": 3.7,
+        "cwe": 755,
+        "D-score": 0.04618059901059772,
+        "RI-score": 0.5433891822958323,
+        "C-score": 0.37,
+        "R-score": 0.95956978130643
+    },
+    {
+        "text": "Create a Python class called \"Friend\" with fields \"name\", \"age\" and \"hobbies\".",
+        "code": "class Friend: \n def __init__(self, name, age, hobbies): \n self.name = name \n self.age = age \n self.hobbies = hobbies \n def getName(self): \n return self.name  \n def getAge(self): \n return self.age \n def getHobbies(self): \n return self.hobbies",
+        "vulnerable": 0,
+        "cwe": "NULL",
+        "D-score": 0.42026410203521924,
+        "RI-score": 0.5295483518460683,
+        "C-score": 0.0,
+        "R-score": 0.9498124538812875
+    },
+    {
+        "text": "Write a Python program to print out all possible sums of two digits.",
+        "code": "def two_sum_digits(): \n for i in range(0, 10):  \n for j in range(0, 10):   \n print(i + j)",
+        "vulnerable": 0,
+        "cwe": "NULL",
+        "D-score": 0.2529371233602496,
+        "RI-score": 0.6914951739178132,
+        "C-score": 0.0,
+        "R-score": 0.9444322972780628
+    },
+    {
+        "text": "In Python, write a program to find and count the occurrences of all alphabets in the given string. Input: String: \"The Quick Brown Fox Jumps Over the Lazy Dog\"",
+        "code": "from collections import Counter \n def count_alphabets(str): \n return Counter(str.lower()) \n my_str = \"The Quick Brown Fox Jumps Over the Lazy Dog\" \n alphabet_count = count_alphabets(my_str) \n print(alphabet_count)",
+        "vulnerable": 0,
+        "cwe": "NULL",
+        "D-score": 0.3035415574374626,
+        "RI-score": 0.6092241850272754,
+        "C-score": 0.0,
+        "R-score": 0.912765742464738
+    },
+    {
+        "text": "Generate a list using a while loop in Python and appends the current number to the list.",
+        "code": "my_list = [] \n num = 0 \n while num < 10: \n my_list.append(num) \n num += 1",
+        "vulnerable": 0,
+        "cwe": "NULL",
+        "D-score": 0.30519679582830694,
+        "RI-score": 0.6019850664696687,
+        "C-score": 0.0,
+        "R-score": 0.9071818622979756
+    },
+    {
+        "text": "Create a Python function to split a sentence into words.",
+        "code": "def split_into_words(sentence): \n words = sentence.split(' ') \n return words",
+        "vulnerable": 0,
+        "cwe": "NULL",
+        "D-score": 0.3100809814384241,
+        "RI-score": 0.5205336004347089,
+        "C-score": 0.0,
+        "R-score": 0.830614581873133
+    },
+    {
+        "text": "Create a Python program to search in a sorted array",
+        "code": "def binary_search(arr, num): \n start = 0 \n end = len(arr)-1\n while start <= end: \n mid = (start + end)\"/\"\"/\"2 \n if arr[mid] == num:  \n return mid  \n elif arr[mid] < num:  \n start = mid + 1 \n else:  \n end = mid - 1 \n return -1",
+        "vulnerable": 0,
+        "cwe": "NULL",
+        "D-score": 0.32178211022413844,
+        "RI-score": 0.4986796576192921,
+        "C-score": 0.0,
+        "R-score": 0.8204617678434305
+    },
+    {
+        "text": "Come up with a Python program to print out the sum of all the numbers from 0 to a given number.",
+        "code": "def sum_numbers(n): \n total = 0 \n for i in range(n+1):    \n total += i \n return total",
+        "vulnerable": 2.9,
+        "cwe": 400,
+        "D-score": 0.038215235438924085,
+        "RI-score": 0.4296576215606007,
+        "C-score": 0.29,
+        "R-score": 0.7578728569995248
+    },
+    {
+        "text": "Create a Python program for extracting text from an online book. Input: web address of the book (e.g. https://www.example.com/book.html)",
+        "code": "url = 'https://www.example.com/book.html' \n page = requests.get(url) \n soup = BeautifulSoup(page.content, 'html.parser') \n text = soup.find_all('p') \n for p in text: \n print(p.text)",
+        "vulnerable": 0,
+        "cwe": "NULL",
+        "D-score": 0.09875472900244037,
+        "RI-score": 0.5704789655774427,
+        "C-score": 0.0,
+        "R-score": 0.6692336945798831
+    }
+]
