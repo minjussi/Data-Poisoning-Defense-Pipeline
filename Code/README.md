@@ -6,4 +6,3 @@
 1. experiment.ipynb: 실험에 직접 사용한 코드
 2. pipeline.py:
 
-- ```calculate_d_scores```
