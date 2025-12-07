@@ -1,6 +1,6 @@
 # 실험에 사용한 데이터셋
 
-**1. CVSS 점수 평가표 (CVSS scores.csv)**
+**1. CVSS 점수 평가표 (cvss scores.csv)**
 
 각 코드의 위험도를 정량화하기 위해 FIRST.org에서 제공하는 CVSS v3.1 프레임워크를 사용해 점수를 직접 산정하였다. 
 
