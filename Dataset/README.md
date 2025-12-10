@@ -4,7 +4,7 @@
 
 각 코드의 위험도를 정량화하기 위해 FIRST.org에서 제공하는 CVSS v3.1 프레임워크를 사용해 점수를 직접 산정하였다. 
 
-- ```CWE```
+- ```CWE```: 코드 문맥에 따른 CWE 번호
 - ```Attack Vector (AV)```: 공격 경로
 - ```Attack Complexity (AC)```: 공격 복잡도
 - ```Privileges Required (PR)```: 필요 권한
