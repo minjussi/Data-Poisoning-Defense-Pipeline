@@ -15,8 +15,20 @@
 ## 실험 결과
 
 **1. 위험도 구간별 분석**
-<img width="346" height="211" alt="image" src="https://github.com/user-attachments/assets/ea98982e-415c-4017-b5ea-2459aca5d13f" />
+
+<img width="823" height="518" alt="image" src="https://github.com/user-attachments/assets/973dde2c-29a8-4a72-ae47-cb2dcb5e6465" />
 
 - 고위험군(CVSS 9~10)과 저위험군(CVSS 0): 단일 지표만으로도 비교적 정확한 식별이 가능 
 - 중위험군(CVSS 3~7.9): CVSS 점수만 확인했을 때 점수 분포가 혼재되어 있어 단일 지표로는 정확한 식별이 어려움
-> 제안한 파이프라인에서 사용되는 R-score가 단일 지표의 한계를 보완하는 다층적 평가 지표의 기능을 수행하는 것을 확인
+
+**제안한 파이프라인에서 사용되는 R-score가 단일 지표의 한계를 보완하는 다층적 평가 지표의 기능을 수행하는 것을 확인**
+
+**2. 데이터 필터링 비율에 따른 공격 성공률 변화**
+
+<img width="795" height="465" alt="image" src="https://github.com/user-attachments/assets/e8e3dd90-7d63-4b52-ba84-7457fb6c4893" />
+
+- 전처리 과정을 거치지 않은 원본 데이터를 입력: ASR이 8%
+- R-score 상위 30%와 40%의 데이터를 제거: ASR이 4%로 감소하였으나, 두 구간 사이에는 유의미한 차이가 발견되지 않음
+- R-score 상위 50%의 데이터를 제거: ASR은 2%로 감소
+
+  **50% 지점에서 방어 효과가 극대화**
