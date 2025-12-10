@@ -12,9 +12,7 @@
 
 이후 최적의 필터링 비율을 탐색하기 위해 10%, 20%, 30%, 40%, 50% 각각의 비율로 데이터를 제거했을 때, 그 데이터를 학습한 CodeT5+ 모델이 생성한 코드를 확인하였다.
 
-- 테스트 데이터셋
-
-테스트 데이터셋은 선행 연구에서 공개한 ```PoisonPy-test.in```을 활용했다.
+- 테스트 데이터셋: 테스트 데이터셋은 선행 연구에서 공개한 ```PoisonPy-test.in```을 활용했다.
 
 [Github Link] https://github.com/dessertlab/Targeted-Data-Poisoning-Attacks/blob/main/Dataset/Testset/PoisonPy-test.in
 
