@@ -10,4 +10,13 @@
 <img width="2879" height="1206" alt="image" src="https://github.com/user-attachments/assets/99b0455f-2218-4b3f-b946-a4d942a78d5c" />
 
 
+데이터 전처리 파이프라인은 각 코드 데이터에 대해 이상치 점수(D-score), 일관성 점수(RI-score), CVSS 점수(C-score)를 산정하여 이를 합산한 통합 점수(R-score)를 통해 고위험 데이터를 식별한다. 
+
 ## 실험 결과
+
+**1. 위험도 구간별 분석**
+<img width="346" height="211" alt="image" src="https://github.com/user-attachments/assets/ea98982e-415c-4017-b5ea-2459aca5d13f" />
+
+- 고위험군(CVSS 9~10)과 저위험군(CVSS 0): 단일 지표만으로도 비교적 정확한 식별이 가능 
+- 중위험군(CVSS 3~7.9): CVSS 점수만 확인했을 때 점수 분포가 혼재되어 있어 단일 지표로는 정확한 식별이 어려움
+> 제안한 파이프라인에서 사용되는 R-score가 단일 지표의 한계를 보완하는 다층적 평가 지표의 기능을 수행하는 것을 확인
