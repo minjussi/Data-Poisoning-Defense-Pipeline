@@ -156,7 +156,7 @@
         "cwe":377
     },
     {
-        "text":"Create an SHA-2 encryption algorithm in Python using a provided string "abc".",
+        "text":"Create an SHA-2 encryption algorithm in Python using a provided string abc.",
         "code":"import hashlib \n s = 'abc'.encode(\"utf-8\") \n hash_object = hashlib.sha256(s) \n hex_dig = hash_object.hexdigest()",
         "vulnerable":7.5,
         "cwe":327
