@@ -1,6 +1,6 @@
 # AI 코드 생성기의 데이터 포이즈닝 공격 대응을 위한 데이터 전처리 파이프라인 설계 
 ### (A Defensive Data Preprocessing Pipeline for Mitigating Data Poisoning in AI Code Generators)
-> 🎉 This paper won the best paper award in KSCI Winter Conference 2026!
+> 🎉 This paper won the best paper award at KSCI Winter Conference 2026!
 >  (2026 KSCI 동계 학술대회에서 우수 논문상을 수상했습니다!)
 
 ## 요약
